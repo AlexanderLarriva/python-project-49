@@ -1,5 +1,6 @@
 import random
 import prompt
+import operator
 import brain_games.ask
 
 
@@ -11,13 +12,19 @@ def run_play():
         a = random.randint(0, 100)
         b = random.randint(0, 100)
         sign = random.choice('+-*')
+        if sign == '+':
+            result = operator.add(a, b)
+        elif sign == '-':
+            result = operator.sub(a, b)
+        else:
+            result = operator.mul(a, b)
         print(f'Question: {a} {sign} {b}')
-        result = int(eval(str(a) + sign + str(b)))
         answer = int(prompt.integer('Your answer: '))
         if (result == answer):
             print("Correct!")
         else:
-            print(f"'{answer}' is wrong answer ;(. Correct answer was '{result}'.")
+            print(f"'{answer}' is wrong answer ;(. \
+Correct answer was '{result}'.")
             break
         score += 1
     brain_games.ask.is_win(score, name)
