@@ -10,3 +10,6 @@ https://asciinema.org/a/BZGkZ1XKhLcvCMHHjeHGVZYii
 
 ### Sharing a link asciinema Brain-calc
 https://asciinema.org/a/547741
+
+### Sharing a link asciinema Brain-gcd
+https://asciinema.org/a/547980
