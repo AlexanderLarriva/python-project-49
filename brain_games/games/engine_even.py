@@ -8,7 +8,7 @@ def run_play():
     score = 0
     while (score < 3):
         a = randint(0, 100)
-        print("Question: ", a)
+        print("Question:", a)
         answer = input("Your answer: ")
         if ((a % 2 == 0) and (answer == 'yes')) or \
                 ((a % 2 != 0) and (answer == 'no')):
