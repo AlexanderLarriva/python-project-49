@@ -16,7 +16,7 @@ def run_play():
         hidden_num = randint(0, len(pr_list) - 1)
         txt_pr_list = list(map(str, pr_list))
         txt_pr_list[hidden_num] = '..'
-        print("Question: ", *txt_pr_list)
+        print("Question:", *txt_pr_list)
         answer = int(prompt.integer('Your answer: '))
         # проверка типов данных
         # print('answer = ', type(answer))
