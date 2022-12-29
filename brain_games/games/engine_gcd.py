@@ -19,7 +19,6 @@ def run_play():
             else:
                 b = b % a
         result = a + b
-        score += 1
         answer = int(prompt.integer('Your answer: '))
         if (result == answer):
             print("Correct!")
@@ -27,4 +26,5 @@ def run_play():
             print(f"'{answer}' is wrong answer ;(. \
 Correct answer was '{result}'.")
             break
+        score += 1
     brain_games.ask.is_win(score, name)
