@@ -18,7 +18,7 @@ def run_play():
     score = 0
     while (score < 3):
         check_num = randint(0, 100)
-        print("Question: ", check_num)
+        print("Question:", check_num)
         answer = input("Your answer: ")
         if is_prime(check_num) and answer == "yes" or \
                 not is_prime(check_num) and answer == "no":
