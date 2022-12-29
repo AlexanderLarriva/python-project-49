@@ -8,7 +8,7 @@ def run_play():
     print('What number is missing in the progression?')
     score = 0
     while (score < 3):
-        pr_list = [None] * randint(5,12)
+        pr_list = [None] * randint(5, 12)
         pr_list[0] = randint(0, 100)
         step = randint(0, 10)
         for i in range(1, len(pr_list)):
@@ -18,7 +18,8 @@ def run_play():
         txt_pr_list[hidden_num] = '..'
         print("Question: ", *txt_pr_list)
         answer = int(prompt.integer('Your answer: '))
-        # print('answer = ', type(answer)) проверка типов данных
+        # проверка типов данных
+        # print('answer = ', type(answer))
         # print('target = ', type(pr_list[hidden_num]))
         if (answer == pr_list[hidden_num]):
             print("Correct!")

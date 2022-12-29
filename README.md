@@ -16,3 +16,6 @@ https://asciinema.org/a/547980
 
 ### Sharing a link asciinema Brain-progression
 https://asciinema.org/a/548355
+
+### Sharing a link asciinema Brain-prime
+https://asciinema.org/a/548446
