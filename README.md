@@ -13,3 +13,6 @@ https://asciinema.org/a/547741
 
 ### Sharing a link asciinema Brain-gcd
 https://asciinema.org/a/547980
+
+### Sharing a link asciinema Brain-progression
+https://asciinema.org/a/548355
