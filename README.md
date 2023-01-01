@@ -38,7 +38,9 @@ Games are run on the command line by calling commands: **brain-even, brain-calc,
 ### Installation procedure.
 
 The game is installed by the command:
-python3 -m pip install --user git+https://github.com/AlexanderLarriva/python-project-49.git
+
+`python3 -m pip install --user git+https://github.com/AlexanderLarriva/python-project-49.git`
 
 Removed by the command:
-python3 -m pip uninstall hexlet-code
+
+`python3 -m pip uninstall hexlet-code`
