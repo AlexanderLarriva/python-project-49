@@ -4,28 +4,28 @@ import brain_games.ask
 
 
 def run_play():
-    name = brain_games.ask.action()
+    NAME = brain_games.ask.greeting()
     print('What number is missing in the progression?')
-    score = 0
-    while (score < 3):
-        pr_list = [None] * randint(5, 12)
-        pr_list[0] = randint(0, 100)
-        step = randint(0, 10)
-        for i in range(1, len(pr_list)):
-            pr_list[i] = pr_list[i - 1] + step
-        hidden_num = randint(0, len(pr_list) - 1)
-        txt_pr_list = list(map(str, pr_list))
-        txt_pr_list[hidden_num] = '..'
-        print("Question:", *txt_pr_list)
-        answer = int(prompt.integer('Your answer: '))
+    SCORE = 0
+    while (SCORE < 3):
+        CREATE_LIST = [None] * randint(5, 12)
+        CREATE_LIST[0] = randint(0, 100)
+        STEP = randint(0, 10)
+        for i in range(1, len(CREATE_LIST)):
+            CREATE_LIST[i] = CREATE_LIST[i - 1] + STEP
+        HIDDEN_NUM = randint(0, len(CREATE_LIST) - 1)
+        CONVERT_CREATE_LIST_TXT = list(map(str, CREATE_LIST))
+        CONVERT_CREATE_LIST_TXT[HIDDEN_NUM] = '..'
+        print("Question:", *CONVERT_CREATE_LIST_TXT)
+        ANSWER = int(prompt.integer('Your answer: '))
         # проверка типов данных
         # print('answer = ', type(answer))
         # print('target = ', type(pr_list[hidden_num]))
-        if (answer == pr_list[hidden_num]):
+        if (ANSWER == CREATE_LIST[HIDDEN_NUM]):
             print("Correct!")
         else:
-            print(f"'{answer}' is wrong answer ;(. \
-Correct answer was '{pr_list[hidden_num]}'.")
+            print(f"'{ANSWER}' is wrong answer ;(. \
+Correct answer was '{CREATE_LIST[HIDDEN_NUM]}'.")
             break
-        score += 1
-    brain_games.ask.is_win(score, name)
+        SCORE += 1
+    brain_games.ask.is_win(SCORE, NAME)

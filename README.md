@@ -44,3 +44,5 @@ The game is installed by the command:
 Removed by the command:
 
 `python3 -m pip uninstall hexlet-code`
+
+#### [*Demonstration of the installation and removal of the game*](https://asciinema.org/a/548973)

@@ -5,26 +5,26 @@ import brain_games.ask
 
 
 def run_play():
-    name = brain_games.ask.action()
+    NAME = brain_games.ask.greeting()
     print('Find the greatest common divisor of given numbers.')
-    score = 0
-    while (score < 3):
-        a = random.randint(0, 100)
-        b = random.randint(0, 100)
-        print(f"Question: {a} {b}")
+    SCORE = 0
+    while (SCORE < 3):
+        FIRST_RND_NUM = random.randint(0, 100)
+        SECOND_RND_NUM = random.randint(0, 100)
+        print(f"Question: {FIRST_RND_NUM} {SECOND_RND_NUM}")
         # print(math.gcd(a, b))
-        while a != 0 and b != 0:
-            if a > b:
-                a = a % b
+        while FIRST_RND_NUM != 0 and SECOND_RND_NUM != 0:
+            if FIRST_RND_NUM > SECOND_RND_NUM:
+                FIRST_RND_NUM = FIRST_RND_NUM % SECOND_RND_NUM
             else:
-                b = b % a
-        result = a + b
-        answer = int(prompt.integer('Your answer: '))
-        if (result == answer):
+                SECOND_RND_NUM = SECOND_RND_NUM % FIRST_RND_NUM
+        RESULT = FIRST_RND_NUM + SECOND_RND_NUM
+        ANSWER = int(prompt.integer('Your answer: '))
+        if (RESULT == ANSWER):
             print("Correct!")
         else:
-            print(f"'{answer}' is wrong answer ;(. \
-Correct answer was '{result}'.")
+            print(f"'{ANSWER}' is wrong answer ;(. \
+Correct answer was '{RESULT}'.")
             break
-        score += 1
-    brain_games.ask.is_win(score, name)
+        SCORE += 1
+    brain_games.ask.is_win(SCORE, NAME)

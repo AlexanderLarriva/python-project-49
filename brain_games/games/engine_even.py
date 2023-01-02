@@ -3,21 +3,21 @@ import brain_games.ask
 
 
 def run_play():
-    name = brain_games.ask.action()
+    NAME = brain_games.ask.greeting()
     print('Answer "yes" if the number is even, otherwise answer "no".')
-    score = 0
-    while (score < 3):
-        a = randint(0, 100)
-        print("Question:", a)
-        answer = input("Your answer: ")
-        if ((a % 2 == 0) and (answer == 'yes')) or \
-                ((a % 2 != 0) and (answer == 'no')):
+    SCORE = 0
+    while (SCORE < 3):
+        RND_NUM = randint(0, 100)
+        print("Question:", RND_NUM)
+        ANSWER = input("Your answer: ")
+        if ((RND_NUM % 2 == 0) and (ANSWER == 'yes')) or \
+                ((RND_NUM % 2 != 0) and (ANSWER == 'no')):
             print("Correct!")
-        if (a % 2 == 0) and (answer != 'yes'):
-            print(f"'{answer}' is wrong answer ;(. Correct answer was 'yes'.")
+        if (RND_NUM % 2 == 0) and (ANSWER != 'yes'):
+            print(f"'{ANSWER}' is wrong answer ;(. Correct answer was 'yes'.")
             break
-        elif (a % 2 != 0) and (answer != 'no'):
-            print(f"'{answer}' is wrong answer ;(. Correct answer was 'no'.")
+        elif (RND_NUM % 2 != 0) and (ANSWER != 'no'):
+            print(f"'{ANSWER}' is wrong answer ;(. Correct answer was 'no'.")
             break
-        score += 1
-    brain_games.ask.is_win(score, name)
+        SCORE += 1
+    brain_games.ask.is_win(SCORE, NAME)
