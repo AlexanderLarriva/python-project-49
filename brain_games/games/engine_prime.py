@@ -17,7 +17,7 @@ def run_play():
     print('Answer "yes" if given number is prime. Otherwise answer "no".')
     SCORE = 0
     while (SCORE < 3):
-        check_sum = randint(0, 100)
+        check_sum = randint(1, 100)
         print("Question:", check_sum)
         answer = input("Your answer: ")
         if is_prime(check_sum) and answer == "yes" or \
