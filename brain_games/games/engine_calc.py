@@ -5,26 +5,26 @@ import brain_games.ask
 
 
 def run_play():
-    NAME = brain_games.ask.greeting()
+    name = brain_games.ask.greeting()
     print('What is the result of the expression?')
     SCORE = 0
     while (SCORE < 3):
-        FIRST_RND_NUM = random.randint(0, 100)
-        SECOND_RND_NUM = random.randint(0, 100)
-        SIGN = random.choice('+-*')
-        if SIGN == '+':
-            RESULT = operator.add(FIRST_RND_NUM, SECOND_RND_NUM)
-        elif SIGN == '-':
-            RESULT = operator.sub(FIRST_RND_NUM, SECOND_RND_NUM)
+        first_rnd_num = random.randint(0, 100)
+        second_rnd_num = random.randint(0, 100)
+        sign = random.choice('+-*')
+        if sign == '+':
+            result = operator.add(first_rnd_num, second_rnd_num)
+        elif sign == '-':
+            result = operator.sub(first_rnd_num, second_rnd_num)
         else:
-            RESULT = operator.mul(FIRST_RND_NUM, SECOND_RND_NUM)
-        print(f'Question: {FIRST_RND_NUM} {SIGN} {SECOND_RND_NUM}')
-        ANSWER = int(prompt.integer('Your answer: '))
-        if (RESULT == ANSWER):
+            result = operator.mul(first_rnd_num, second_rnd_num)
+        print(f'Question: {first_rnd_num} {sign} {second_rnd_num}')
+        answer = int(prompt.integer('Your answer: '))
+        if (result == answer):
             print("Correct!")
         else:
-            print(f"'{ANSWER}' is wrong answer ;(. \
-Correct answer was '{RESULT}'.")
+            print(f"'{answer}' is wrong answer ;(. \
+Correct answer was '{result}'.")
             break
         SCORE += 1
-    brain_games.ask.is_win(SCORE, NAME)
+    brain_games.ask.is_win(SCORE, name)

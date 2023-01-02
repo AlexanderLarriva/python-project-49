@@ -13,21 +13,21 @@ def is_prime(n):
 
 
 def run_play():
-    NAME = brain_games.ask.greeting()
+    name = brain_games.ask.greeting()
     print('Answer "yes" if given number is prime. Otherwise answer "no".')
     SCORE = 0
     while (SCORE < 3):
-        CHECK_NUM = randint(0, 100)
-        print("Question:", CHECK_NUM)
-        ANSWER = input("Your answer: ")
-        if is_prime(CHECK_NUM) and ANSWER == "yes" or \
-                not is_prime(CHECK_NUM) and ANSWER == "no":
+        check_sum = randint(0, 100)
+        print("Question:", check_sum)
+        answer = input("Your answer: ")
+        if is_prime(check_sum) and answer == "yes" or \
+                not is_prime(check_sum) and answer == "no":
             print("Correct!")
-        if is_prime(CHECK_NUM) and (ANSWER != 'yes'):
-            print(f"'{ANSWER}' is wrong answer ;(. Correct answer was 'yes'.")
+        if is_prime(check_sum) and (answer != 'yes'):
+            print(f"'{answer}' is wrong answer ;(. Correct answer was 'yes'.")
             break
-        elif not is_prime(CHECK_NUM) and (ANSWER != 'no'):
-            print(f"'{ANSWER}' is wrong answer ;(. Correct answer was 'no'.")
+        elif not is_prime(check_sum) and (answer != 'no'):
+            print(f"'{answer}' is wrong answer ;(. Correct answer was 'no'.")
             break
         SCORE += 1
-    brain_games.ask.is_win(SCORE, NAME)
+    brain_games.ask.is_win(SCORE, name)

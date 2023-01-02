@@ -3,13 +3,13 @@ import prompt
 
 def greeting():
     print("Welcome to the Brain Games!")
-    NAME = prompt.string('May I have your name? ')
-    print(f'Hello, {NAME}!')
-    return NAME
+    name = prompt.string('May I have your name? ')
+    print(f'Hello, {name}!')
+    return name
 
 
-def is_win(SCORE, NAME):
-    if (SCORE == 3):
-        print(f"Congratulations, {NAME}!")
+def is_win(score, name):
+    if (score == 3):
+        print(f"Congratulations, {name}!")
     else:
-        print(f"Let's try again, {NAME}!")
+        print(f"Let's try again, {name}!")

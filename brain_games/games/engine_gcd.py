@@ -5,26 +5,26 @@ import brain_games.ask
 
 
 def run_play():
-    NAME = brain_games.ask.greeting()
+    name = brain_games.ask.greeting()
     print('Find the greatest common divisor of given numbers.')
     SCORE = 0
     while (SCORE < 3):
-        FIRST_RND_NUM = random.randint(0, 100)
-        SECOND_RND_NUM = random.randint(0, 100)
-        print(f"Question: {FIRST_RND_NUM} {SECOND_RND_NUM}")
+        first_rnd_num = random.randint(0, 100)
+        second_rnd_num = random.randint(0, 100)
+        print(f"Question: {first_rnd_num} {second_rnd_num}")
         # print(math.gcd(a, b))
-        while FIRST_RND_NUM != 0 and SECOND_RND_NUM != 0:
-            if FIRST_RND_NUM > SECOND_RND_NUM:
-                FIRST_RND_NUM = FIRST_RND_NUM % SECOND_RND_NUM
+        while first_rnd_num != 0 and second_rnd_num != 0:
+            if first_rnd_num > second_rnd_num:
+                first_rnd_num = first_rnd_num % second_rnd_num
             else:
-                SECOND_RND_NUM = SECOND_RND_NUM % FIRST_RND_NUM
-        RESULT = FIRST_RND_NUM + SECOND_RND_NUM
-        ANSWER = int(prompt.integer('Your answer: '))
-        if (RESULT == ANSWER):
+                second_rnd_num = second_rnd_num % first_rnd_num
+        result = first_rnd_num + second_rnd_num
+        answer = int(prompt.integer('Your answer: '))
+        if (result == answer):
             print("Correct!")
         else:
-            print(f"'{ANSWER}' is wrong answer ;(. \
-Correct answer was '{RESULT}'.")
+            print(f"'{answer}' is wrong answer ;(. \
+Correct answer was '{result}'.")
             break
         SCORE += 1
-    brain_games.ask.is_win(SCORE, NAME)
+    brain_games.ask.is_win(SCORE, name)
