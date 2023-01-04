@@ -9,3 +9,8 @@ __pycache__/
 #ignore .json
 *.json
 .vscode/launch.json
+
+#ignore dist
+dist/
+*.whl
+*.gz
