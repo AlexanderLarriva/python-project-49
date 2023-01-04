@@ -1,5 +1,7 @@
 import prompt
+import operator
 import brain_games.games.even
+import brain_games.games.calc
 
 
 # Player's Greeting
@@ -10,8 +12,8 @@ def greeting():
     return name
 
 
-# Game Engine
-def action(name):
+# Game Engine is_even
+def is_even(name):
     brain_games.games.even.say_task()
     score = 0
     while (score < 3):
@@ -23,6 +25,30 @@ def action(name):
         else:
             print(f"'{answer}' is wrong answer ;(. \
                 Correct answer was '{check_even}'.")
+            break
+        score += 1
+    is_win(score, name)
+
+
+# Game Engine calc
+def calc(name):
+    brain_games.games.calc.say_task()
+    score = 0
+    while (score < 3):
+        first_rnd_num, second_rnd_num, sign = brain_games.games.calc.run_game()
+        print(f'Question: {first_rnd_num} {sign} {second_rnd_num}')
+        answer = int(prompt.integer('Your answer: '))
+        if sign == '+':
+            result = operator.add(first_rnd_num, second_rnd_num)
+        elif sign == '-':
+            result = operator.sub(first_rnd_num, second_rnd_num)
+        else:
+            result = operator.mul(first_rnd_num, second_rnd_num)
+        if (result == answer):
+            print("Correct!")
+        else:
+            print(f"'{answer}' is wrong answer ;(. \
+Correct answer was '{result}'.")
             break
         score += 1
     is_win(score, name)

@@ -5,7 +5,7 @@ import brain_games.engine
 
 def main():
     name = brain_games.engine.greeting()
-    brain_games.engine.action(name)
+    brain_games.engine.is_even(name)
 
 
 if __name__ == '__main__':
