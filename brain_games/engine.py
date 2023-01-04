@@ -4,6 +4,7 @@ import brain_games.games.even
 import brain_games.games.calc
 import brain_games.games.gcd
 
+
 # Player's Greeting
 def greeting():
     print("Welcome to the Brain Games!")
@@ -52,8 +53,8 @@ Correct answer was '{result}'.")
             break
         score += 1
     is_win(score, name)
-    
-    
+
+
 # Game Engine gcd
 def gcd(name):
     brain_games.games.calc.say_task()
