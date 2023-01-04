@@ -2,7 +2,7 @@ import prompt
 import operator
 import brain_games.games.even
 import brain_games.games.calc
-
+import brain_games.games.gcd
 
 # Player's Greeting
 def greeting():
@@ -44,6 +44,30 @@ def calc(name):
             result = operator.sub(first_rnd_num, second_rnd_num)
         else:
             result = operator.mul(first_rnd_num, second_rnd_num)
+        if (result == answer):
+            print("Correct!")
+        else:
+            print(f"'{answer}' is wrong answer ;(. \
+Correct answer was '{result}'.")
+            break
+        score += 1
+    is_win(score, name)
+    
+    
+# Game Engine gcd
+def gcd(name):
+    brain_games.games.calc.say_task()
+    score = 0
+    while (score < 3):
+        first_rnd_num, second_rnd_num = brain_games.games.gcd.run_game()
+        print(f"Question: {first_rnd_num} {second_rnd_num}")
+        answer = int(prompt.integer('Your answer: '))
+        while first_rnd_num != 0 and second_rnd_num != 0:
+            if first_rnd_num > second_rnd_num:
+                first_rnd_num = first_rnd_num % second_rnd_num
+            else:
+                second_rnd_num = second_rnd_num % first_rnd_num
+        result = first_rnd_num + second_rnd_num
         if (result == answer):
             print("Correct!")
         else:
