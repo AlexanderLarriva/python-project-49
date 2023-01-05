@@ -55,7 +55,7 @@ Correct answer was '{result}'.")
 
 # Game Engine gcd
 def gcd(name):
-    brain_games.games.calc.say_task()
+    brain_games.games.gcd.say_task()
     score = 0
     while (score < 3):
         first_rnd_num, second_rnd_num = brain_games.games.gcd.run_game()
