@@ -1,8 +1,9 @@
 import prompt
-import operator
 import brain_games.games.even
 import brain_games.games.calc
 import brain_games.games.gcd
+import brain_games.games.progression
+import brain_games.games.prime
 
 
 # Player's Greeting
@@ -14,18 +15,19 @@ def greeting():
 
 
 # Game Engine is_even
-def is_even(name):
+def even_check(name):
     brain_games.games.even.say_task()
     score = 0
     while (score < 3):
-        check_even, rnd_num = brain_games.games.even.run_game()
+        rnd_num = brain_games.games.even.gen()
+        check_even = brain_games.games.even.run_game(rnd_num)
         print("Question:", rnd_num)
         answer = input("Your answer: ")
         if (check_even == answer):
             print("Correct!")
         else:
             print(f"'{answer}' is wrong answer ;(. \
-                Correct answer was '{check_even}'.")
+Correct answer was '{check_even}'.")
             break
         score += 1
     is_win(score, name)
@@ -38,13 +40,9 @@ def calc(name):
     while (score < 3):
         first_rnd_num, second_rnd_num, sign = brain_games.games.calc.run_game()
         print(f'Question: {first_rnd_num} {sign} {second_rnd_num}')
-        answer = int(prompt.integer('Your answer: '))
-        if sign == '+':
-            result = operator.add(first_rnd_num, second_rnd_num)
-        elif sign == '-':
-            result = operator.sub(first_rnd_num, second_rnd_num)
-        else:
-            result = operator.mul(first_rnd_num, second_rnd_num)
+        answer = prompt.integer('Your answer: ')
+        result = brain_games.games.calc.math_action(first_rnd_num,
+                                                    second_rnd_num, sign)
         if (result == answer):
             print("Correct!")
         else:
@@ -62,18 +60,50 @@ def gcd(name):
     while (score < 3):
         first_rnd_num, second_rnd_num = brain_games.games.gcd.run_game()
         print(f"Question: {first_rnd_num} {second_rnd_num}")
-        answer = int(prompt.integer('Your answer: '))
-        while first_rnd_num != 0 and second_rnd_num != 0:
-            if first_rnd_num > second_rnd_num:
-                first_rnd_num = first_rnd_num % second_rnd_num
-            else:
-                second_rnd_num = second_rnd_num % first_rnd_num
-        result = first_rnd_num + second_rnd_num
+        answer = prompt.integer('Your answer: ')
+        result = brain_games.games.gcd.find_gcd(first_rnd_num, second_rnd_num)
         if (result == answer):
             print("Correct!")
         else:
             print(f"'{answer}' is wrong answer ;(. \
 Correct answer was '{result}'.")
+            break
+        score += 1
+    is_win(score, name)
+
+
+# Game Engine progression
+def progression(name):
+    brain_games.games.progression.say_task()
+    score = 0
+    while (score < 3):
+        mut_element, my_list_str = brain_games.games.progression.run_game()
+        print("Question:", my_list_str)
+        answer = prompt.integer('Your answer: ')
+        if (mut_element == answer):
+            print("Correct!")
+        else:
+            print(f"'{answer}' is wrong answer ;(. \
+Correct answer was '{mut_element}'.")
+            break
+        score += 1
+    is_win(score, name)
+
+
+# Game Engine prime
+def is_prime(name):
+    brain_games.games.prime.say_task()
+    score = 0
+    while (score < 3):
+        check_num = brain_games.games.prime.gen()
+        check_prime = brain_games.games.prime.run_game(check_num)
+        print("Question:", check_num)
+        answer = input("Your answer: ")
+        if answer == check_prime:
+            print("Correct!")
+        else:
+            print(f"'{answer}' is wrong answer ;(.  \
+Correct answer was '{check_prime}'.")
             break
         score += 1
     is_win(score, name)
