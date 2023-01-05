@@ -23,11 +23,8 @@ def even_check(name):
         check_even = brain_games.games.even.run_game(rnd_num)
         print("Question:", rnd_num)
         answer = input("Your answer: ")
-        if (check_even == answer):
-            print("Correct!")
-        else:
-            print(f"'{answer}' is wrong answer ;(. \
-Correct answer was '{check_even}'.")
+        stop_while = is_correct(answer, check_even)
+        if stop_while == 0:
             break
         score += 1
     is_win(score, name)
@@ -43,11 +40,8 @@ def calc(name):
         answer = prompt.integer('Your answer: ')
         result = brain_games.games.calc.math_action(first_rnd_num,
                                                     second_rnd_num, sign)
-        if (result == answer):
-            print("Correct!")
-        else:
-            print(f"'{answer}' is wrong answer ;(. \
-Correct answer was '{result}'.")
+        stop_while = is_correct(answer, result)
+        if stop_while == 0:
             break
         score += 1
     is_win(score, name)
@@ -60,13 +54,10 @@ def gcd(name):
     while (score < 3):
         first_rnd_num, second_rnd_num = brain_games.games.gcd.run_game()
         print(f"Question: {first_rnd_num} {second_rnd_num}")
-        answer = prompt.integer('Your answer: ')
         result = brain_games.games.gcd.find_gcd(first_rnd_num, second_rnd_num)
-        if (result == answer):
-            print("Correct!")
-        else:
-            print(f"'{answer}' is wrong answer ;(. \
-Correct answer was '{result}'.")
+        answer = prompt.integer('Your answer: ')
+        stop_while = is_correct(answer, result)
+        if stop_while == 0:
             break
         score += 1
     is_win(score, name)
@@ -80,11 +71,8 @@ def progression(name):
         mut_element, my_list_str = brain_games.games.progression.run_game()
         print("Question:", my_list_str)
         answer = prompt.integer('Your answer: ')
-        if (mut_element == answer):
-            print("Correct!")
-        else:
-            print(f"'{answer}' is wrong answer ;(. \
-Correct answer was '{mut_element}'.")
+        stop_while = is_correct(answer, mut_element)
+        if stop_while == 0:
             break
         score += 1
     is_win(score, name)
@@ -99,12 +87,15 @@ def is_prime(name):
         check_prime = brain_games.games.prime.run_game(check_num)
         print("Question:", check_num)
         answer = input("Your answer: ")
-        if answer == check_prime:
-            print("Correct!")
-        else:
-            print(f"'{answer}' is wrong answer ;(.  \
-Correct answer was '{check_prime}'.")
+        stop_while = is_correct(answer, check_prime)
+        if stop_while == 0:
             break
+#         if answer == check_prime:
+#             print("Correct!")
+#         else:
+#             print(f"'{answer}' is wrong answer ;(.  \
+# Correct answer was '{check_prime}'.")
+#             break
         score += 1
     is_win(score, name)
 
@@ -115,3 +106,12 @@ def is_win(score, name):
         print(f"Congratulations, {name}!")
     else:
         print(f"Let's try again, {name}!")
+
+
+def is_correct(answer, check):
+    if answer == check:
+        print("Correct!")
+    else:
+        print(f"'{answer}' is wrong answer ;(.  \
+Correct answer was '{check}'.")
+        return 0
