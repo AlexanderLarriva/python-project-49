@@ -108,6 +108,7 @@ def is_win(score, name):
         print(f"Let's try again, {name}!")
 
 
+# Correctness check.
 def is_correct(answer, check):
     if answer == check:
         print("Correct!")
