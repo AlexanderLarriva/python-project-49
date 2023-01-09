@@ -1,19 +1,22 @@
 from random import randint
 
 
-# Displaying the task on the screen
-def say_task():
-    print('Answer "yes" if the number is even, otherwise answer "no".')
+TASK = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 
-def run_game(rnd_num):
-    check_even = ""
+def get_result(rnd_num):
+    '''Finds the correct solution to the problem.'''
+    correct_answer = ""
     if (rnd_num % 2 == 0):
-        check_even = "yes"
+        correct_answer = "yes"
     else:
-        check_even = "no"
-    return check_even
+        correct_answer = "no"
+    return correct_answer
 
 
-def gen():
-    return randint(0, 100)
+def get_question():
+    '''Generates task values and a question to the player'''
+    rnd_num = randint(0, 100)
+    correct_answer = get_result(rnd_num)
+    question = f"Question: {rnd_num}"
+    return question, correct_answer

@@ -2,7 +2,7 @@
 install:
 	poetry install
 
-brain-games: #start app
+brain-games:
 	poetry run brain-games
 
 brain-even:

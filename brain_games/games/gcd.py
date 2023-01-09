@@ -1,12 +1,11 @@
 import random
 
 
-# Displaying the task on the screen
-def say_task():
-    print('Find the greatest common divisor of given numbers.')
+TASK = 'Find the greatest common divisor of given numbers.'
 
 
-def find_gcd(first_rnd_num, second_rnd_num):
+def get_result(first_rnd_num, second_rnd_num):
+    '''Finds the correct solution to the problem.'''
     while first_rnd_num != 0 and second_rnd_num != 0:
         if first_rnd_num > second_rnd_num:
             first_rnd_num = first_rnd_num % second_rnd_num
@@ -15,7 +14,10 @@ def find_gcd(first_rnd_num, second_rnd_num):
     return first_rnd_num + second_rnd_num
 
 
-def run_game():
+def get_question():
+    '''Generates task values and a question to the player'''
     first_rnd_num = random.randint(0, 100)
     second_rnd_num = random.randint(0, 100)
-    return first_rnd_num, second_rnd_num
+    correct_answer = str(get_result(first_rnd_num, second_rnd_num))
+    question = f"Question: {first_rnd_num} {second_rnd_num}"
+    return question, correct_answer

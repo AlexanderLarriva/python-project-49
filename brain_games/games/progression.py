@@ -1,19 +1,25 @@
 from random import randint
 
 
-# Displaying the task on the screen
-def say_task():
-    print('What number is missing in the progression?')
+TASK = 'What number is missing in the progression?'
 
 
-def run_game():
-    progr_list = list(range(0, randint(5, 12)))
-    progr_list[0] = randint(0, 100)
+def get_result(progression):
+    '''Finds the correct solution to the problem.'''
+    hidden_num = randint(0, len(progression) - 1)
+    correct_answer = str(progression[hidden_num])
+    progression_str = " ".join(map(str, progression))
+    progression_str = progression_str.replace(str(correct_answer), '..')
+    return correct_answer, progression_str
+
+
+def get_question():
+    '''Generates task values and a question to the player'''
+    progression = list(range(0, randint(5, 12)))
+    progression[0] = randint(0, 100)
     step = randint(1, 10)
-    for i in range(1, len(progr_list)):
-        progr_list[i] = progr_list[i - 1] + step
-    hidden_num = randint(0, len(progr_list) - 1)
-    mut_element = progr_list[hidden_num]
-    progr_list_str = " ".join(map(str, progr_list))
-    progr_list_str = progr_list_str.replace(str(mut_element), '..')
-    return mut_element, progr_list_str
+    for i in range(1, len(progression)):
+        progression[i] = progression[i - 1] + step
+    correct_answer, progression_str = get_result(progression)
+    question = f"Question: {progression_str}"
+    return question, correct_answer
