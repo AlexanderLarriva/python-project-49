@@ -4,19 +4,15 @@ from random import randint
 TASK = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 
-def get_result(rnd_num):
-    '''Finds the correct solution to the problem.'''
-    correct_answer = ""
-    if (rnd_num % 2 == 0):
-        correct_answer = "yes"
-    else:
-        correct_answer = "no"
-    return correct_answer
+def is_even(num):
+    '''Сheck the number for parity.'''
+    if (num % 2 == 0):
+        return True
 
 
-def get_question():
-    '''Generates task values and a question to the player'''
+def get_question_answer():
+    '''Generates task values and a question to the player.'''
     rnd_num = randint(0, 100)
-    correct_answer = get_result(rnd_num)
+    correct_answer = "yes" if is_even(rnd_num) else "no"
     question = f"Question: {rnd_num}"
     return question, correct_answer

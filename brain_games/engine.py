@@ -1,6 +1,9 @@
 import prompt
 
 
+NUMBER_ROUNDS = 3
+
+
 def get_name():
     '''Getting to know the player.'''
     print("Welcome to the Brain Games!")
@@ -11,33 +14,26 @@ def get_name():
 
 def display_winner(score, name):
     '''Displays the result of the game.'''
-    if (score == 3):
+    if (score == NUMBER_ROUNDS):
         print(f"Congratulations, {name}!")
     else:
         print(f"Let's try again, {name}!")
 
 
-def get_result(answer, correct_answer):
-    '''Check the correctness of the entered answer.'''
-    if answer == correct_answer:
-        print("Correct!")
-    else:
-        print(f"'{answer}' is wrong answer ;(.  \
-Correct answer was '{correct_answer}'.")
-        return 0
-
-
-def run_game(engine):
+def run_game(game):
     '''The game engine.'''
     name = get_name()
-    print(engine.TASK)
+    print(game.TASK)
     score = 0
-    while (score < 3):
-        question, correct_answer = engine.get_question()
+    while (score < NUMBER_ROUNDS):
+        question, correct_answer = game.get_question_answer()
         print(question)
         answer = prompt.string("Your answer: ")
-        stop_while = get_result(answer, correct_answer)
-        if stop_while == 0:
+        if answer == correct_answer:
+            print("Correct!")
+        else:
+            print(f"'{answer}' is wrong answer ;(. "
+                  f"Correct answer was '{correct_answer}'.")
             break
         score += 1
     display_winner(score, name)
