@@ -3,7 +3,7 @@ from random import randint
 
 TASK = 'What number is missing in the progression?'
 MIN_LENGTH_PROGRESSION = 5
-MAX_LENFTH_PROGRESSION = 10
+MAX_LENGTH_PROGRESSION = 10
 RANGE_LIMIT = 1000000
 
 
@@ -19,7 +19,7 @@ def get_result(progression):
 
 def get_question_answer():
     '''Generates task values and a question to the player.'''
-    length_progression = randint(MIN_LENGTH_PROGRESSION, MAX_LENFTH_PROGRESSION)
+    length_progression = randint(MIN_LENGTH_PROGRESSION, MAX_LENGTH_PROGRESSION)
     first_num_progression = randint(0, 100)
     step = randint(1, 10)
     progression = list(range(first_num_progression, RANGE_LIMIT, step)
