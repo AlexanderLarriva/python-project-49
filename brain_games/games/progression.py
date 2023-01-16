@@ -20,9 +20,9 @@ def get_result(progression):
 def get_question_answer():
     '''Generates task values and a question to the player.'''
     length_progression = randint(MIN_LENGTH_PROGRESSION, MAX_LENFTH_PROGRESSION)
-    start = randint(0, 100)
+    first_num_progression = randint(0, 100)
     step = randint(1, 10)
-    progression = list(range(start, RANGE_LIMIT, step)[:length_progression])
+    progression = list(range(first_num_progression, RANGE_LIMIT, step)[:length_progression])
     correct_answer, progression_str = get_result(progression)
     question = f"Question: {progression_str}"
     return question, correct_answer
