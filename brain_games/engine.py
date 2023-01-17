@@ -1,7 +1,7 @@
 import prompt
 
 
-NUMBER_ROUNDS = 3
+ROUNDS = 3
 
 
 def get_name():
@@ -14,7 +14,7 @@ def get_name():
 
 def display_winner(score, name):
     '''Displays the result of the game.'''
-    if (score == NUMBER_ROUNDS):
+    if (score == ROUNDS):
         print(f"Congratulations, {name}!")
     else:
         print(f"Let's try again, {name}!")
@@ -25,7 +25,7 @@ def run_game(game):
     name = get_name()
     print(game.TASK)
     score = 0
-    while (score < NUMBER_ROUNDS):
+    while (score < ROUNDS):
         question, correct_answer = game.get_question_answer()
         print(question)
         answer = prompt.string("Your answer: ")
